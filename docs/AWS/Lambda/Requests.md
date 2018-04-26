@@ -11,7 +11,7 @@ addEventSource :: forall eff. Service -> AddEventSourceRequest -> Aff (exception
 #### `deleteFunction`
 
 ``` purescript
-deleteFunction :: forall eff. Service -> DeleteFunctionRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteFunction :: forall eff. Service -> DeleteFunctionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the specified Lambda function code and configuration.</p> <p>This operation requires permission for the <code>lambda:DeleteFunction</code> action.</p>
@@ -67,7 +67,7 @@ listFunctions :: forall eff. Service -> ListFunctionsRequest -> Aff (exception :
 #### `removeEventSource`
 
 ``` purescript
-removeEventSource :: forall eff. Service -> RemoveEventSourceRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+removeEventSource :: forall eff. Service -> RemoveEventSourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.</p> <p>This operation requires permission for the <code>lambda:RemoveEventSource</code> action.</p>

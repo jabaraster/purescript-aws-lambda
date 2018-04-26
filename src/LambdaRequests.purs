@@ -19,7 +19,7 @@ addEventSource (Lambda.Service serviceImpl) = AWS.request serviceImpl method  wh
 
 
 -- | <p>Deletes the specified Lambda function code and configuration.</p> <p>This operation requires permission for the <code>lambda:DeleteFunction</code> action.</p>
-deleteFunction :: forall eff. Lambda.Service -> LambdaTypes.DeleteFunctionRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteFunction :: forall eff. Lambda.Service -> LambdaTypes.DeleteFunctionRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteFunction (Lambda.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteFunction"
 
@@ -61,7 +61,7 @@ listFunctions (Lambda.Service serviceImpl) = AWS.request serviceImpl method  whe
 
 
 -- | <p>Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.</p> <p>This operation requires permission for the <code>lambda:RemoveEventSource</code> action.</p>
-removeEventSource :: forall eff. Lambda.Service -> LambdaTypes.RemoveEventSourceRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+removeEventSource :: forall eff. Lambda.Service -> LambdaTypes.RemoveEventSourceRequest -> Aff (exception :: EXCEPTION | eff) Unit
 removeEventSource (Lambda.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "removeEventSource"
 

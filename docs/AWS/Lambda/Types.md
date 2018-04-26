@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AddEventSourceRequest
-  = AddEventSourceRequest { "EventSource" :: String, "FunctionName" :: FunctionName, "Role" :: RoleArn, "BatchSize" :: NullOrUndefined (Int), "Parameters" :: NullOrUndefined (Map'') }
+  = AddEventSourceRequest { "EventSource" :: String, "FunctionName" :: FunctionName, "Role" :: RoleArn, "BatchSize" :: Maybe (Int), "Parameters" :: Maybe (Map'') }
 ```
 
 ##### Instances
@@ -33,7 +33,7 @@ Constructs AddEventSourceRequest from required parameters
 #### `newAddEventSourceRequest'`
 
 ``` purescript
-newAddEventSourceRequest' :: String -> FunctionName -> RoleArn -> ({ "EventSource" :: String, "FunctionName" :: FunctionName, "Role" :: RoleArn, "BatchSize" :: NullOrUndefined (Int), "Parameters" :: NullOrUndefined (Map'') } -> { "EventSource" :: String, "FunctionName" :: FunctionName, "Role" :: RoleArn, "BatchSize" :: NullOrUndefined (Int), "Parameters" :: NullOrUndefined (Map'') }) -> AddEventSourceRequest
+newAddEventSourceRequest' :: String -> FunctionName -> RoleArn -> ({ "EventSource" :: String, "FunctionName" :: FunctionName, "Role" :: RoleArn, "BatchSize" :: Maybe (Int), "Parameters" :: Maybe (Map'') } -> { "EventSource" :: String, "FunctionName" :: FunctionName, "Role" :: RoleArn, "BatchSize" :: Maybe (Int), "Parameters" :: Maybe (Map'') }) -> AddEventSourceRequest
 ```
 
 Constructs AddEventSourceRequest's fields from required parameters
@@ -90,7 +90,7 @@ Encode Description
 
 ``` purescript
 newtype EventSourceConfiguration
-  = EventSourceConfiguration { "UUID" :: NullOrUndefined (String), "BatchSize" :: NullOrUndefined (Int), "EventSource" :: NullOrUndefined (String), "FunctionName" :: NullOrUndefined (FunctionName), "Parameters" :: NullOrUndefined (Map''), "Role" :: NullOrUndefined (RoleArn), "LastModified" :: NullOrUndefined (Timestamp), "IsActive" :: NullOrUndefined (Boolean), "Status" :: NullOrUndefined (String) }
+  = EventSourceConfiguration { "UUID" :: Maybe (String), "BatchSize" :: Maybe (Int), "EventSource" :: Maybe (String), "FunctionName" :: Maybe (FunctionName), "Parameters" :: Maybe (Map''), "Role" :: Maybe (RoleArn), "LastModified" :: Maybe (Timestamp), "IsActive" :: Maybe (Boolean), "Status" :: Maybe (String) }
 ```
 
 <p>Describes mapping between an Amazon Kinesis stream and a Lambda function.</p>
@@ -115,7 +115,7 @@ Constructs EventSourceConfiguration from required parameters
 #### `newEventSourceConfiguration'`
 
 ``` purescript
-newEventSourceConfiguration' :: ({ "UUID" :: NullOrUndefined (String), "BatchSize" :: NullOrUndefined (Int), "EventSource" :: NullOrUndefined (String), "FunctionName" :: NullOrUndefined (FunctionName), "Parameters" :: NullOrUndefined (Map''), "Role" :: NullOrUndefined (RoleArn), "LastModified" :: NullOrUndefined (Timestamp), "IsActive" :: NullOrUndefined (Boolean), "Status" :: NullOrUndefined (String) } -> { "UUID" :: NullOrUndefined (String), "BatchSize" :: NullOrUndefined (Int), "EventSource" :: NullOrUndefined (String), "FunctionName" :: NullOrUndefined (FunctionName), "Parameters" :: NullOrUndefined (Map''), "Role" :: NullOrUndefined (RoleArn), "LastModified" :: NullOrUndefined (Timestamp), "IsActive" :: NullOrUndefined (Boolean), "Status" :: NullOrUndefined (String) }) -> EventSourceConfiguration
+newEventSourceConfiguration' :: ({ "UUID" :: Maybe (String), "BatchSize" :: Maybe (Int), "EventSource" :: Maybe (String), "FunctionName" :: Maybe (FunctionName), "Parameters" :: Maybe (Map''), "Role" :: Maybe (RoleArn), "LastModified" :: Maybe (Timestamp), "IsActive" :: Maybe (Boolean), "Status" :: Maybe (String) } -> { "UUID" :: Maybe (String), "BatchSize" :: Maybe (Int), "EventSource" :: Maybe (String), "FunctionName" :: Maybe (FunctionName), "Parameters" :: Maybe (Map''), "Role" :: Maybe (RoleArn), "LastModified" :: Maybe (Timestamp), "IsActive" :: Maybe (Boolean), "Status" :: Maybe (String) }) -> EventSourceConfiguration
 ```
 
 Constructs EventSourceConfiguration's fields from required parameters
@@ -156,7 +156,7 @@ Encode FunctionArn
 
 ``` purescript
 newtype FunctionCodeLocation
-  = FunctionCodeLocation { "RepositoryType" :: NullOrUndefined (String), "Location" :: NullOrUndefined (String) }
+  = FunctionCodeLocation { "RepositoryType" :: Maybe (String), "Location" :: Maybe (String) }
 ```
 
 <p>The object for the Lambda function location.</p>
@@ -181,7 +181,7 @@ Constructs FunctionCodeLocation from required parameters
 #### `newFunctionCodeLocation'`
 
 ``` purescript
-newFunctionCodeLocation' :: ({ "RepositoryType" :: NullOrUndefined (String), "Location" :: NullOrUndefined (String) } -> { "RepositoryType" :: NullOrUndefined (String), "Location" :: NullOrUndefined (String) }) -> FunctionCodeLocation
+newFunctionCodeLocation' :: ({ "RepositoryType" :: Maybe (String), "Location" :: Maybe (String) } -> { "RepositoryType" :: Maybe (String), "Location" :: Maybe (String) }) -> FunctionCodeLocation
 ```
 
 Constructs FunctionCodeLocation's fields from required parameters
@@ -190,7 +190,7 @@ Constructs FunctionCodeLocation's fields from required parameters
 
 ``` purescript
 newtype FunctionConfiguration
-  = FunctionConfiguration { "FunctionName" :: NullOrUndefined (FunctionName), "FunctionARN" :: NullOrUndefined (FunctionArn), "ConfigurationId" :: NullOrUndefined (String), "Runtime" :: NullOrUndefined (Runtime), "Role" :: NullOrUndefined (RoleArn), "Handler" :: NullOrUndefined (Handler), "Mode" :: NullOrUndefined (Mode), "CodeSize" :: NullOrUndefined (Number), "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize), "LastModified" :: NullOrUndefined (Timestamp) }
+  = FunctionConfiguration { "FunctionName" :: Maybe (FunctionName), "FunctionARN" :: Maybe (FunctionArn), "ConfigurationId" :: Maybe (String), "Runtime" :: Maybe (Runtime), "Role" :: Maybe (RoleArn), "Handler" :: Maybe (Handler), "Mode" :: Maybe (Mode), "CodeSize" :: Maybe (Number), "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize), "LastModified" :: Maybe (Timestamp) }
 ```
 
 <p>A complex type that describes function metadata.</p>
@@ -215,7 +215,7 @@ Constructs FunctionConfiguration from required parameters
 #### `newFunctionConfiguration'`
 
 ``` purescript
-newFunctionConfiguration' :: ({ "FunctionName" :: NullOrUndefined (FunctionName), "FunctionARN" :: NullOrUndefined (FunctionArn), "ConfigurationId" :: NullOrUndefined (String), "Runtime" :: NullOrUndefined (Runtime), "Role" :: NullOrUndefined (RoleArn), "Handler" :: NullOrUndefined (Handler), "Mode" :: NullOrUndefined (Mode), "CodeSize" :: NullOrUndefined (Number), "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize), "LastModified" :: NullOrUndefined (Timestamp) } -> { "FunctionName" :: NullOrUndefined (FunctionName), "FunctionARN" :: NullOrUndefined (FunctionArn), "ConfigurationId" :: NullOrUndefined (String), "Runtime" :: NullOrUndefined (Runtime), "Role" :: NullOrUndefined (RoleArn), "Handler" :: NullOrUndefined (Handler), "Mode" :: NullOrUndefined (Mode), "CodeSize" :: NullOrUndefined (Number), "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize), "LastModified" :: NullOrUndefined (Timestamp) }) -> FunctionConfiguration
+newFunctionConfiguration' :: ({ "FunctionName" :: Maybe (FunctionName), "FunctionARN" :: Maybe (FunctionArn), "ConfigurationId" :: Maybe (String), "Runtime" :: Maybe (Runtime), "Role" :: Maybe (RoleArn), "Handler" :: Maybe (Handler), "Mode" :: Maybe (Mode), "CodeSize" :: Maybe (Number), "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize), "LastModified" :: Maybe (Timestamp) } -> { "FunctionName" :: Maybe (FunctionName), "FunctionARN" :: Maybe (FunctionArn), "ConfigurationId" :: Maybe (String), "Runtime" :: Maybe (Runtime), "Role" :: Maybe (RoleArn), "Handler" :: Maybe (Handler), "Mode" :: Maybe (Mode), "CodeSize" :: Maybe (Number), "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize), "LastModified" :: Maybe (Timestamp) }) -> FunctionConfiguration
 ```
 
 Constructs FunctionConfiguration's fields from required parameters
@@ -352,7 +352,7 @@ Constructs GetFunctionRequest's fields from required parameters
 
 ``` purescript
 newtype GetFunctionResponse
-  = GetFunctionResponse { "Configuration" :: NullOrUndefined (FunctionConfiguration), "Code" :: NullOrUndefined (FunctionCodeLocation) }
+  = GetFunctionResponse { "Configuration" :: Maybe (FunctionConfiguration), "Code" :: Maybe (FunctionCodeLocation) }
 ```
 
 <p>This response contains the object for AWS Lambda function location (see <a>API_FunctionCodeLocation</a></p>
@@ -377,7 +377,7 @@ Constructs GetFunctionResponse from required parameters
 #### `newGetFunctionResponse'`
 
 ``` purescript
-newGetFunctionResponse' :: ({ "Configuration" :: NullOrUndefined (FunctionConfiguration), "Code" :: NullOrUndefined (FunctionCodeLocation) } -> { "Configuration" :: NullOrUndefined (FunctionConfiguration), "Code" :: NullOrUndefined (FunctionCodeLocation) }) -> GetFunctionResponse
+newGetFunctionResponse' :: ({ "Configuration" :: Maybe (FunctionConfiguration), "Code" :: Maybe (FunctionCodeLocation) } -> { "Configuration" :: Maybe (FunctionConfiguration), "Code" :: Maybe (FunctionCodeLocation) }) -> GetFunctionResponse
 ```
 
 Constructs GetFunctionResponse's fields from required parameters
@@ -418,7 +418,7 @@ Encode HttpStatus
 
 ``` purescript
 newtype InvalidParameterValueException
-  = InvalidParameterValueException { "Type" :: NullOrUndefined (String), message :: NullOrUndefined (String) }
+  = InvalidParameterValueException { "Type" :: Maybe (String), message :: Maybe (String) }
 ```
 
 <p>One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>UploadFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception. </p>
@@ -443,7 +443,7 @@ Constructs InvalidParameterValueException from required parameters
 #### `newInvalidParameterValueException'`
 
 ``` purescript
-newInvalidParameterValueException' :: ({ "Type" :: NullOrUndefined (String), message :: NullOrUndefined (String) } -> { "Type" :: NullOrUndefined (String), message :: NullOrUndefined (String) }) -> InvalidParameterValueException
+newInvalidParameterValueException' :: ({ "Type" :: Maybe (String), message :: Maybe (String) } -> { "Type" :: Maybe (String), message :: Maybe (String) }) -> InvalidParameterValueException
 ```
 
 Constructs InvalidParameterValueException's fields from required parameters
@@ -452,7 +452,7 @@ Constructs InvalidParameterValueException's fields from required parameters
 
 ``` purescript
 newtype InvalidRequestContentException
-  = InvalidRequestContentException { "Type" :: NullOrUndefined (String), message :: NullOrUndefined (String) }
+  = InvalidRequestContentException { "Type" :: Maybe (String), message :: Maybe (String) }
 ```
 
 <p>The request body could not be parsed as JSON.</p>
@@ -477,7 +477,7 @@ Constructs InvalidRequestContentException from required parameters
 #### `newInvalidRequestContentException'`
 
 ``` purescript
-newInvalidRequestContentException' :: ({ "Type" :: NullOrUndefined (String), message :: NullOrUndefined (String) } -> { "Type" :: NullOrUndefined (String), message :: NullOrUndefined (String) }) -> InvalidRequestContentException
+newInvalidRequestContentException' :: ({ "Type" :: Maybe (String), message :: Maybe (String) } -> { "Type" :: Maybe (String), message :: Maybe (String) }) -> InvalidRequestContentException
 ```
 
 Constructs InvalidRequestContentException's fields from required parameters
@@ -518,7 +518,7 @@ Constructs InvokeAsyncRequest's fields from required parameters
 
 ``` purescript
 newtype InvokeAsyncResponse
-  = InvokeAsyncResponse { "Status" :: NullOrUndefined (HttpStatus) }
+  = InvokeAsyncResponse { "Status" :: Maybe (HttpStatus) }
 ```
 
 <p>Upon success, it returns empty response. Otherwise, throws an exception.</p>
@@ -543,7 +543,7 @@ Constructs InvokeAsyncResponse from required parameters
 #### `newInvokeAsyncResponse'`
 
 ``` purescript
-newInvokeAsyncResponse' :: ({ "Status" :: NullOrUndefined (HttpStatus) } -> { "Status" :: NullOrUndefined (HttpStatus) }) -> InvokeAsyncResponse
+newInvokeAsyncResponse' :: ({ "Status" :: Maybe (HttpStatus) } -> { "Status" :: Maybe (HttpStatus) }) -> InvokeAsyncResponse
 ```
 
 Constructs InvokeAsyncResponse's fields from required parameters
@@ -552,7 +552,7 @@ Constructs InvokeAsyncResponse's fields from required parameters
 
 ``` purescript
 newtype ListEventSourcesRequest
-  = ListEventSourcesRequest { "EventSourceArn" :: NullOrUndefined (String), "FunctionName" :: NullOrUndefined (FunctionName), "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (MaxListItems) }
+  = ListEventSourcesRequest { "EventSourceArn" :: Maybe (String), "FunctionName" :: Maybe (FunctionName), "Marker" :: Maybe (String), "MaxItems" :: Maybe (MaxListItems) }
 ```
 
 ##### Instances
@@ -575,7 +575,7 @@ Constructs ListEventSourcesRequest from required parameters
 #### `newListEventSourcesRequest'`
 
 ``` purescript
-newListEventSourcesRequest' :: ({ "EventSourceArn" :: NullOrUndefined (String), "FunctionName" :: NullOrUndefined (FunctionName), "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (MaxListItems) } -> { "EventSourceArn" :: NullOrUndefined (String), "FunctionName" :: NullOrUndefined (FunctionName), "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (MaxListItems) }) -> ListEventSourcesRequest
+newListEventSourcesRequest' :: ({ "EventSourceArn" :: Maybe (String), "FunctionName" :: Maybe (FunctionName), "Marker" :: Maybe (String), "MaxItems" :: Maybe (MaxListItems) } -> { "EventSourceArn" :: Maybe (String), "FunctionName" :: Maybe (FunctionName), "Marker" :: Maybe (String), "MaxItems" :: Maybe (MaxListItems) }) -> ListEventSourcesRequest
 ```
 
 Constructs ListEventSourcesRequest's fields from required parameters
@@ -584,7 +584,7 @@ Constructs ListEventSourcesRequest's fields from required parameters
 
 ``` purescript
 newtype ListEventSourcesResponse
-  = ListEventSourcesResponse { "NextMarker" :: NullOrUndefined (String), "EventSources" :: NullOrUndefined (EventSourceList) }
+  = ListEventSourcesResponse { "NextMarker" :: Maybe (String), "EventSources" :: Maybe (EventSourceList) }
 ```
 
 <p>Contains a list of event sources (see <a>API_EventSourceConfiguration</a>)</p>
@@ -609,7 +609,7 @@ Constructs ListEventSourcesResponse from required parameters
 #### `newListEventSourcesResponse'`
 
 ``` purescript
-newListEventSourcesResponse' :: ({ "NextMarker" :: NullOrUndefined (String), "EventSources" :: NullOrUndefined (EventSourceList) } -> { "NextMarker" :: NullOrUndefined (String), "EventSources" :: NullOrUndefined (EventSourceList) }) -> ListEventSourcesResponse
+newListEventSourcesResponse' :: ({ "NextMarker" :: Maybe (String), "EventSources" :: Maybe (EventSourceList) } -> { "NextMarker" :: Maybe (String), "EventSources" :: Maybe (EventSourceList) }) -> ListEventSourcesResponse
 ```
 
 Constructs ListEventSourcesResponse's fields from required parameters
@@ -618,7 +618,7 @@ Constructs ListEventSourcesResponse's fields from required parameters
 
 ``` purescript
 newtype ListFunctionsRequest
-  = ListFunctionsRequest { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (MaxListItems) }
+  = ListFunctionsRequest { "Marker" :: Maybe (String), "MaxItems" :: Maybe (MaxListItems) }
 ```
 
 ##### Instances
@@ -641,7 +641,7 @@ Constructs ListFunctionsRequest from required parameters
 #### `newListFunctionsRequest'`
 
 ``` purescript
-newListFunctionsRequest' :: ({ "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (MaxListItems) } -> { "Marker" :: NullOrUndefined (String), "MaxItems" :: NullOrUndefined (MaxListItems) }) -> ListFunctionsRequest
+newListFunctionsRequest' :: ({ "Marker" :: Maybe (String), "MaxItems" :: Maybe (MaxListItems) } -> { "Marker" :: Maybe (String), "MaxItems" :: Maybe (MaxListItems) }) -> ListFunctionsRequest
 ```
 
 Constructs ListFunctionsRequest's fields from required parameters
@@ -650,7 +650,7 @@ Constructs ListFunctionsRequest's fields from required parameters
 
 ``` purescript
 newtype ListFunctionsResponse
-  = ListFunctionsResponse { "NextMarker" :: NullOrUndefined (String), "Functions" :: NullOrUndefined (FunctionList) }
+  = ListFunctionsResponse { "NextMarker" :: Maybe (String), "Functions" :: Maybe (FunctionList) }
 ```
 
 <p>Contains a list of AWS Lambda function configurations (see <a>API_FunctionConfiguration</a>.</p>
@@ -675,7 +675,7 @@ Constructs ListFunctionsResponse from required parameters
 #### `newListFunctionsResponse'`
 
 ``` purescript
-newListFunctionsResponse' :: ({ "NextMarker" :: NullOrUndefined (String), "Functions" :: NullOrUndefined (FunctionList) } -> { "NextMarker" :: NullOrUndefined (String), "Functions" :: NullOrUndefined (FunctionList) }) -> ListFunctionsResponse
+newListFunctionsResponse' :: ({ "NextMarker" :: Maybe (String), "Functions" :: Maybe (FunctionList) } -> { "NextMarker" :: Maybe (String), "Functions" :: Maybe (FunctionList) }) -> ListFunctionsResponse
 ```
 
 Constructs ListFunctionsResponse's fields from required parameters
@@ -780,7 +780,7 @@ Constructs RemoveEventSourceRequest's fields from required parameters
 
 ``` purescript
 newtype ResourceNotFoundException
-  = ResourceNotFoundException { "Type" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = ResourceNotFoundException { "Type" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>The function or the event source specified in the request does not exist.</p>
@@ -805,7 +805,7 @@ Constructs ResourceNotFoundException from required parameters
 #### `newResourceNotFoundException'`
 
 ``` purescript
-newResourceNotFoundException' :: ({ "Type" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "Type" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> ResourceNotFoundException
+newResourceNotFoundException' :: ({ "Type" :: Maybe (String), "Message" :: Maybe (String) } -> { "Type" :: Maybe (String), "Message" :: Maybe (String) }) -> ResourceNotFoundException
 ```
 
 Constructs ResourceNotFoundException's fields from required parameters
@@ -846,7 +846,7 @@ Encode Runtime
 
 ``` purescript
 newtype ServiceException
-  = ServiceException { "Type" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = ServiceException { "Type" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>The AWS Lambda service encountered an internal error.</p>
@@ -871,7 +871,7 @@ Constructs ServiceException from required parameters
 #### `newServiceException'`
 
 ``` purescript
-newServiceException' :: ({ "Type" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "Type" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> ServiceException
+newServiceException' :: ({ "Type" :: Maybe (String), "Message" :: Maybe (String) } -> { "Type" :: Maybe (String), "Message" :: Maybe (String) }) -> ServiceException
 ```
 
 Constructs ServiceException's fields from required parameters
@@ -896,7 +896,7 @@ Encode Timeout
 
 ``` purescript
 newtype UpdateFunctionConfigurationRequest
-  = UpdateFunctionConfigurationRequest { "FunctionName" :: FunctionName, "Role" :: NullOrUndefined (RoleArn), "Handler" :: NullOrUndefined (Handler), "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize) }
+  = UpdateFunctionConfigurationRequest { "FunctionName" :: FunctionName, "Role" :: Maybe (RoleArn), "Handler" :: Maybe (Handler), "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize) }
 ```
 
 ##### Instances
@@ -919,7 +919,7 @@ Constructs UpdateFunctionConfigurationRequest from required parameters
 #### `newUpdateFunctionConfigurationRequest'`
 
 ``` purescript
-newUpdateFunctionConfigurationRequest' :: FunctionName -> ({ "FunctionName" :: FunctionName, "Role" :: NullOrUndefined (RoleArn), "Handler" :: NullOrUndefined (Handler), "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize) } -> { "FunctionName" :: FunctionName, "Role" :: NullOrUndefined (RoleArn), "Handler" :: NullOrUndefined (Handler), "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize) }) -> UpdateFunctionConfigurationRequest
+newUpdateFunctionConfigurationRequest' :: FunctionName -> ({ "FunctionName" :: FunctionName, "Role" :: Maybe (RoleArn), "Handler" :: Maybe (Handler), "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize) } -> { "FunctionName" :: FunctionName, "Role" :: Maybe (RoleArn), "Handler" :: Maybe (Handler), "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize) }) -> UpdateFunctionConfigurationRequest
 ```
 
 Constructs UpdateFunctionConfigurationRequest's fields from required parameters
@@ -928,7 +928,7 @@ Constructs UpdateFunctionConfigurationRequest's fields from required parameters
 
 ``` purescript
 newtype UploadFunctionRequest
-  = UploadFunctionRequest { "FunctionName" :: FunctionName, "FunctionZip" :: String, "Runtime" :: Runtime, "Role" :: RoleArn, "Handler" :: Handler, "Mode" :: Mode, "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize) }
+  = UploadFunctionRequest { "FunctionName" :: FunctionName, "FunctionZip" :: String, "Runtime" :: Runtime, "Role" :: RoleArn, "Handler" :: Handler, "Mode" :: Mode, "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize) }
 ```
 
 ##### Instances
@@ -951,7 +951,7 @@ Constructs UploadFunctionRequest from required parameters
 #### `newUploadFunctionRequest'`
 
 ``` purescript
-newUploadFunctionRequest' :: FunctionName -> String -> Handler -> Mode -> RoleArn -> Runtime -> ({ "FunctionName" :: FunctionName, "FunctionZip" :: String, "Runtime" :: Runtime, "Role" :: RoleArn, "Handler" :: Handler, "Mode" :: Mode, "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize) } -> { "FunctionName" :: FunctionName, "FunctionZip" :: String, "Runtime" :: Runtime, "Role" :: RoleArn, "Handler" :: Handler, "Mode" :: Mode, "Description" :: NullOrUndefined (Description), "Timeout" :: NullOrUndefined (Timeout), "MemorySize" :: NullOrUndefined (MemorySize) }) -> UploadFunctionRequest
+newUploadFunctionRequest' :: FunctionName -> String -> Handler -> Mode -> RoleArn -> Runtime -> ({ "FunctionName" :: FunctionName, "FunctionZip" :: String, "Runtime" :: Runtime, "Role" :: RoleArn, "Handler" :: Handler, "Mode" :: Mode, "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize) } -> { "FunctionName" :: FunctionName, "FunctionZip" :: String, "Runtime" :: Runtime, "Role" :: RoleArn, "Handler" :: Handler, "Mode" :: Mode, "Description" :: Maybe (Description), "Timeout" :: Maybe (Timeout), "MemorySize" :: Maybe (MemorySize) }) -> UploadFunctionRequest
 ```
 
 Constructs UploadFunctionRequest's fields from required parameters

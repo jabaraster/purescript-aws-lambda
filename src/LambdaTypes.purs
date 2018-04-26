@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -22,8 +21,8 @@ newtype AddEventSourceRequest = AddEventSourceRequest
   { "EventSource" :: (String)
   , "FunctionName" :: (FunctionName)
   , "Role" :: (RoleArn)
-  , "BatchSize" :: NullOrUndefined (Int)
-  , "Parameters" :: NullOrUndefined (Map'')
+  , "BatchSize" :: Maybe (Int)
+  , "Parameters" :: Maybe (Map'')
   }
 derive instance newtypeAddEventSourceRequest :: Newtype AddEventSourceRequest _
 derive instance repGenericAddEventSourceRequest :: Generic AddEventSourceRequest _
@@ -33,12 +32,12 @@ instance encodeAddEventSourceRequest :: Encode AddEventSourceRequest where encod
 
 -- | Constructs AddEventSourceRequest from required parameters
 newAddEventSourceRequest :: String -> FunctionName -> RoleArn -> AddEventSourceRequest
-newAddEventSourceRequest _EventSource _FunctionName _Role = AddEventSourceRequest { "EventSource": _EventSource, "FunctionName": _FunctionName, "Role": _Role, "BatchSize": (NullOrUndefined Nothing), "Parameters": (NullOrUndefined Nothing) }
+newAddEventSourceRequest _EventSource _FunctionName _Role = AddEventSourceRequest { "EventSource": _EventSource, "FunctionName": _FunctionName, "Role": _Role, "BatchSize": Nothing, "Parameters": Nothing }
 
 -- | Constructs AddEventSourceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAddEventSourceRequest' :: String -> FunctionName -> RoleArn -> ( { "EventSource" :: (String) , "FunctionName" :: (FunctionName) , "Role" :: (RoleArn) , "BatchSize" :: NullOrUndefined (Int) , "Parameters" :: NullOrUndefined (Map'') } -> {"EventSource" :: (String) , "FunctionName" :: (FunctionName) , "Role" :: (RoleArn) , "BatchSize" :: NullOrUndefined (Int) , "Parameters" :: NullOrUndefined (Map'') } ) -> AddEventSourceRequest
-newAddEventSourceRequest' _EventSource _FunctionName _Role customize = (AddEventSourceRequest <<< customize) { "EventSource": _EventSource, "FunctionName": _FunctionName, "Role": _Role, "BatchSize": (NullOrUndefined Nothing), "Parameters": (NullOrUndefined Nothing) }
+newAddEventSourceRequest' :: String -> FunctionName -> RoleArn -> ( { "EventSource" :: (String) , "FunctionName" :: (FunctionName) , "Role" :: (RoleArn) , "BatchSize" :: Maybe (Int) , "Parameters" :: Maybe (Map'') } -> {"EventSource" :: (String) , "FunctionName" :: (FunctionName) , "Role" :: (RoleArn) , "BatchSize" :: Maybe (Int) , "Parameters" :: Maybe (Map'') } ) -> AddEventSourceRequest
+newAddEventSourceRequest' _EventSource _FunctionName _Role customize = (AddEventSourceRequest <<< customize) { "EventSource": _EventSource, "FunctionName": _FunctionName, "Role": _Role, "BatchSize": Nothing, "Parameters": Nothing }
 
 
 
@@ -73,15 +72,15 @@ instance encodeDescription :: Encode Description where encode = genericEncode op
 
 -- | <p>Describes mapping between an Amazon Kinesis stream and a Lambda function.</p>
 newtype EventSourceConfiguration = EventSourceConfiguration 
-  { "UUID" :: NullOrUndefined (String)
-  , "BatchSize" :: NullOrUndefined (Int)
-  , "EventSource" :: NullOrUndefined (String)
-  , "FunctionName" :: NullOrUndefined (FunctionName)
-  , "Parameters" :: NullOrUndefined (Map'')
-  , "Role" :: NullOrUndefined (RoleArn)
-  , "LastModified" :: NullOrUndefined (Types.Timestamp)
-  , "IsActive" :: NullOrUndefined (Boolean)
-  , "Status" :: NullOrUndefined (String)
+  { "UUID" :: Maybe (String)
+  , "BatchSize" :: Maybe (Int)
+  , "EventSource" :: Maybe (String)
+  , "FunctionName" :: Maybe (FunctionName)
+  , "Parameters" :: Maybe (Map'')
+  , "Role" :: Maybe (RoleArn)
+  , "LastModified" :: Maybe (Types.Timestamp)
+  , "IsActive" :: Maybe (Boolean)
+  , "Status" :: Maybe (String)
   }
 derive instance newtypeEventSourceConfiguration :: Newtype EventSourceConfiguration _
 derive instance repGenericEventSourceConfiguration :: Generic EventSourceConfiguration _
@@ -91,12 +90,12 @@ instance encodeEventSourceConfiguration :: Encode EventSourceConfiguration where
 
 -- | Constructs EventSourceConfiguration from required parameters
 newEventSourceConfiguration :: EventSourceConfiguration
-newEventSourceConfiguration  = EventSourceConfiguration { "BatchSize": (NullOrUndefined Nothing), "EventSource": (NullOrUndefined Nothing), "FunctionName": (NullOrUndefined Nothing), "IsActive": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing), "Parameters": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "UUID": (NullOrUndefined Nothing) }
+newEventSourceConfiguration  = EventSourceConfiguration { "BatchSize": Nothing, "EventSource": Nothing, "FunctionName": Nothing, "IsActive": Nothing, "LastModified": Nothing, "Parameters": Nothing, "Role": Nothing, "Status": Nothing, "UUID": Nothing }
 
 -- | Constructs EventSourceConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventSourceConfiguration' :: ( { "UUID" :: NullOrUndefined (String) , "BatchSize" :: NullOrUndefined (Int) , "EventSource" :: NullOrUndefined (String) , "FunctionName" :: NullOrUndefined (FunctionName) , "Parameters" :: NullOrUndefined (Map'') , "Role" :: NullOrUndefined (RoleArn) , "LastModified" :: NullOrUndefined (Types.Timestamp) , "IsActive" :: NullOrUndefined (Boolean) , "Status" :: NullOrUndefined (String) } -> {"UUID" :: NullOrUndefined (String) , "BatchSize" :: NullOrUndefined (Int) , "EventSource" :: NullOrUndefined (String) , "FunctionName" :: NullOrUndefined (FunctionName) , "Parameters" :: NullOrUndefined (Map'') , "Role" :: NullOrUndefined (RoleArn) , "LastModified" :: NullOrUndefined (Types.Timestamp) , "IsActive" :: NullOrUndefined (Boolean) , "Status" :: NullOrUndefined (String) } ) -> EventSourceConfiguration
-newEventSourceConfiguration'  customize = (EventSourceConfiguration <<< customize) { "BatchSize": (NullOrUndefined Nothing), "EventSource": (NullOrUndefined Nothing), "FunctionName": (NullOrUndefined Nothing), "IsActive": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing), "Parameters": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "UUID": (NullOrUndefined Nothing) }
+newEventSourceConfiguration' :: ( { "UUID" :: Maybe (String) , "BatchSize" :: Maybe (Int) , "EventSource" :: Maybe (String) , "FunctionName" :: Maybe (FunctionName) , "Parameters" :: Maybe (Map'') , "Role" :: Maybe (RoleArn) , "LastModified" :: Maybe (Types.Timestamp) , "IsActive" :: Maybe (Boolean) , "Status" :: Maybe (String) } -> {"UUID" :: Maybe (String) , "BatchSize" :: Maybe (Int) , "EventSource" :: Maybe (String) , "FunctionName" :: Maybe (FunctionName) , "Parameters" :: Maybe (Map'') , "Role" :: Maybe (RoleArn) , "LastModified" :: Maybe (Types.Timestamp) , "IsActive" :: Maybe (Boolean) , "Status" :: Maybe (String) } ) -> EventSourceConfiguration
+newEventSourceConfiguration'  customize = (EventSourceConfiguration <<< customize) { "BatchSize": Nothing, "EventSource": Nothing, "FunctionName": Nothing, "IsActive": Nothing, "LastModified": Nothing, "Parameters": Nothing, "Role": Nothing, "Status": Nothing, "UUID": Nothing }
 
 
 
@@ -120,8 +119,8 @@ instance encodeFunctionArn :: Encode FunctionArn where encode = genericEncode op
 
 -- | <p>The object for the Lambda function location.</p>
 newtype FunctionCodeLocation = FunctionCodeLocation 
-  { "RepositoryType" :: NullOrUndefined (String)
-  , "Location" :: NullOrUndefined (String)
+  { "RepositoryType" :: Maybe (String)
+  , "Location" :: Maybe (String)
   }
 derive instance newtypeFunctionCodeLocation :: Newtype FunctionCodeLocation _
 derive instance repGenericFunctionCodeLocation :: Generic FunctionCodeLocation _
@@ -131,29 +130,29 @@ instance encodeFunctionCodeLocation :: Encode FunctionCodeLocation where encode 
 
 -- | Constructs FunctionCodeLocation from required parameters
 newFunctionCodeLocation :: FunctionCodeLocation
-newFunctionCodeLocation  = FunctionCodeLocation { "Location": (NullOrUndefined Nothing), "RepositoryType": (NullOrUndefined Nothing) }
+newFunctionCodeLocation  = FunctionCodeLocation { "Location": Nothing, "RepositoryType": Nothing }
 
 -- | Constructs FunctionCodeLocation's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFunctionCodeLocation' :: ( { "RepositoryType" :: NullOrUndefined (String) , "Location" :: NullOrUndefined (String) } -> {"RepositoryType" :: NullOrUndefined (String) , "Location" :: NullOrUndefined (String) } ) -> FunctionCodeLocation
-newFunctionCodeLocation'  customize = (FunctionCodeLocation <<< customize) { "Location": (NullOrUndefined Nothing), "RepositoryType": (NullOrUndefined Nothing) }
+newFunctionCodeLocation' :: ( { "RepositoryType" :: Maybe (String) , "Location" :: Maybe (String) } -> {"RepositoryType" :: Maybe (String) , "Location" :: Maybe (String) } ) -> FunctionCodeLocation
+newFunctionCodeLocation'  customize = (FunctionCodeLocation <<< customize) { "Location": Nothing, "RepositoryType": Nothing }
 
 
 
 -- | <p>A complex type that describes function metadata.</p>
 newtype FunctionConfiguration = FunctionConfiguration 
-  { "FunctionName" :: NullOrUndefined (FunctionName)
-  , "FunctionARN" :: NullOrUndefined (FunctionArn)
-  , "ConfigurationId" :: NullOrUndefined (String)
-  , "Runtime" :: NullOrUndefined (Runtime)
-  , "Role" :: NullOrUndefined (RoleArn)
-  , "Handler" :: NullOrUndefined (Handler)
-  , "Mode" :: NullOrUndefined (Mode)
-  , "CodeSize" :: NullOrUndefined (Number)
-  , "Description" :: NullOrUndefined (Description)
-  , "Timeout" :: NullOrUndefined (Timeout)
-  , "MemorySize" :: NullOrUndefined (MemorySize)
-  , "LastModified" :: NullOrUndefined (Types.Timestamp)
+  { "FunctionName" :: Maybe (FunctionName)
+  , "FunctionARN" :: Maybe (FunctionArn)
+  , "ConfigurationId" :: Maybe (String)
+  , "Runtime" :: Maybe (Runtime)
+  , "Role" :: Maybe (RoleArn)
+  , "Handler" :: Maybe (Handler)
+  , "Mode" :: Maybe (Mode)
+  , "CodeSize" :: Maybe (Number)
+  , "Description" :: Maybe (Description)
+  , "Timeout" :: Maybe (Timeout)
+  , "MemorySize" :: Maybe (MemorySize)
+  , "LastModified" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeFunctionConfiguration :: Newtype FunctionConfiguration _
 derive instance repGenericFunctionConfiguration :: Generic FunctionConfiguration _
@@ -163,12 +162,12 @@ instance encodeFunctionConfiguration :: Encode FunctionConfiguration where encod
 
 -- | Constructs FunctionConfiguration from required parameters
 newFunctionConfiguration :: FunctionConfiguration
-newFunctionConfiguration  = FunctionConfiguration { "CodeSize": (NullOrUndefined Nothing), "ConfigurationId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "FunctionARN": (NullOrUndefined Nothing), "FunctionName": (NullOrUndefined Nothing), "Handler": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing), "MemorySize": (NullOrUndefined Nothing), "Mode": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Runtime": (NullOrUndefined Nothing), "Timeout": (NullOrUndefined Nothing) }
+newFunctionConfiguration  = FunctionConfiguration { "CodeSize": Nothing, "ConfigurationId": Nothing, "Description": Nothing, "FunctionARN": Nothing, "FunctionName": Nothing, "Handler": Nothing, "LastModified": Nothing, "MemorySize": Nothing, "Mode": Nothing, "Role": Nothing, "Runtime": Nothing, "Timeout": Nothing }
 
 -- | Constructs FunctionConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFunctionConfiguration' :: ( { "FunctionName" :: NullOrUndefined (FunctionName) , "FunctionARN" :: NullOrUndefined (FunctionArn) , "ConfigurationId" :: NullOrUndefined (String) , "Runtime" :: NullOrUndefined (Runtime) , "Role" :: NullOrUndefined (RoleArn) , "Handler" :: NullOrUndefined (Handler) , "Mode" :: NullOrUndefined (Mode) , "CodeSize" :: NullOrUndefined (Number) , "Description" :: NullOrUndefined (Description) , "Timeout" :: NullOrUndefined (Timeout) , "MemorySize" :: NullOrUndefined (MemorySize) , "LastModified" :: NullOrUndefined (Types.Timestamp) } -> {"FunctionName" :: NullOrUndefined (FunctionName) , "FunctionARN" :: NullOrUndefined (FunctionArn) , "ConfigurationId" :: NullOrUndefined (String) , "Runtime" :: NullOrUndefined (Runtime) , "Role" :: NullOrUndefined (RoleArn) , "Handler" :: NullOrUndefined (Handler) , "Mode" :: NullOrUndefined (Mode) , "CodeSize" :: NullOrUndefined (Number) , "Description" :: NullOrUndefined (Description) , "Timeout" :: NullOrUndefined (Timeout) , "MemorySize" :: NullOrUndefined (MemorySize) , "LastModified" :: NullOrUndefined (Types.Timestamp) } ) -> FunctionConfiguration
-newFunctionConfiguration'  customize = (FunctionConfiguration <<< customize) { "CodeSize": (NullOrUndefined Nothing), "ConfigurationId": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "FunctionARN": (NullOrUndefined Nothing), "FunctionName": (NullOrUndefined Nothing), "Handler": (NullOrUndefined Nothing), "LastModified": (NullOrUndefined Nothing), "MemorySize": (NullOrUndefined Nothing), "Mode": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Runtime": (NullOrUndefined Nothing), "Timeout": (NullOrUndefined Nothing) }
+newFunctionConfiguration' :: ( { "FunctionName" :: Maybe (FunctionName) , "FunctionARN" :: Maybe (FunctionArn) , "ConfigurationId" :: Maybe (String) , "Runtime" :: Maybe (Runtime) , "Role" :: Maybe (RoleArn) , "Handler" :: Maybe (Handler) , "Mode" :: Maybe (Mode) , "CodeSize" :: Maybe (Number) , "Description" :: Maybe (Description) , "Timeout" :: Maybe (Timeout) , "MemorySize" :: Maybe (MemorySize) , "LastModified" :: Maybe (Types.Timestamp) } -> {"FunctionName" :: Maybe (FunctionName) , "FunctionARN" :: Maybe (FunctionArn) , "ConfigurationId" :: Maybe (String) , "Runtime" :: Maybe (Runtime) , "Role" :: Maybe (RoleArn) , "Handler" :: Maybe (Handler) , "Mode" :: Maybe (Mode) , "CodeSize" :: Maybe (Number) , "Description" :: Maybe (Description) , "Timeout" :: Maybe (Timeout) , "MemorySize" :: Maybe (MemorySize) , "LastModified" :: Maybe (Types.Timestamp) } ) -> FunctionConfiguration
+newFunctionConfiguration'  customize = (FunctionConfiguration <<< customize) { "CodeSize": Nothing, "ConfigurationId": Nothing, "Description": Nothing, "FunctionARN": Nothing, "FunctionName": Nothing, "Handler": Nothing, "LastModified": Nothing, "MemorySize": Nothing, "Mode": Nothing, "Role": Nothing, "Runtime": Nothing, "Timeout": Nothing }
 
 
 
@@ -252,8 +251,8 @@ newGetFunctionRequest' _FunctionName customize = (GetFunctionRequest <<< customi
 
 -- | <p>This response contains the object for AWS Lambda function location (see <a>API_FunctionCodeLocation</a></p>
 newtype GetFunctionResponse = GetFunctionResponse 
-  { "Configuration" :: NullOrUndefined (FunctionConfiguration)
-  , "Code" :: NullOrUndefined (FunctionCodeLocation)
+  { "Configuration" :: Maybe (FunctionConfiguration)
+  , "Code" :: Maybe (FunctionCodeLocation)
   }
 derive instance newtypeGetFunctionResponse :: Newtype GetFunctionResponse _
 derive instance repGenericGetFunctionResponse :: Generic GetFunctionResponse _
@@ -263,12 +262,12 @@ instance encodeGetFunctionResponse :: Encode GetFunctionResponse where encode = 
 
 -- | Constructs GetFunctionResponse from required parameters
 newGetFunctionResponse :: GetFunctionResponse
-newGetFunctionResponse  = GetFunctionResponse { "Code": (NullOrUndefined Nothing), "Configuration": (NullOrUndefined Nothing) }
+newGetFunctionResponse  = GetFunctionResponse { "Code": Nothing, "Configuration": Nothing }
 
 -- | Constructs GetFunctionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetFunctionResponse' :: ( { "Configuration" :: NullOrUndefined (FunctionConfiguration) , "Code" :: NullOrUndefined (FunctionCodeLocation) } -> {"Configuration" :: NullOrUndefined (FunctionConfiguration) , "Code" :: NullOrUndefined (FunctionCodeLocation) } ) -> GetFunctionResponse
-newGetFunctionResponse'  customize = (GetFunctionResponse <<< customize) { "Code": (NullOrUndefined Nothing), "Configuration": (NullOrUndefined Nothing) }
+newGetFunctionResponse' :: ( { "Configuration" :: Maybe (FunctionConfiguration) , "Code" :: Maybe (FunctionCodeLocation) } -> {"Configuration" :: Maybe (FunctionConfiguration) , "Code" :: Maybe (FunctionCodeLocation) } ) -> GetFunctionResponse
+newGetFunctionResponse'  customize = (GetFunctionResponse <<< customize) { "Code": Nothing, "Configuration": Nothing }
 
 
 
@@ -292,8 +291,8 @@ instance encodeHttpStatus :: Encode HttpStatus where encode = genericEncode opti
 
 -- | <p>One of the parameters in the request is invalid. For example, if you provided an IAM role for AWS Lambda to assume in the <code>UploadFunction</code> or the <code>UpdateFunctionConfiguration</code> API, that AWS Lambda is unable to assume you will get this exception. </p>
 newtype InvalidParameterValueException = InvalidParameterValueException 
-  { "Type" :: NullOrUndefined (String)
-  , "message" :: NullOrUndefined (String)
+  { "Type" :: Maybe (String)
+  , "message" :: Maybe (String)
   }
 derive instance newtypeInvalidParameterValueException :: Newtype InvalidParameterValueException _
 derive instance repGenericInvalidParameterValueException :: Generic InvalidParameterValueException _
@@ -303,19 +302,19 @@ instance encodeInvalidParameterValueException :: Encode InvalidParameterValueExc
 
 -- | Constructs InvalidParameterValueException from required parameters
 newInvalidParameterValueException :: InvalidParameterValueException
-newInvalidParameterValueException  = InvalidParameterValueException { "Type": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newInvalidParameterValueException  = InvalidParameterValueException { "Type": Nothing, "message": Nothing }
 
 -- | Constructs InvalidParameterValueException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidParameterValueException' :: ( { "Type" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } -> {"Type" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } ) -> InvalidParameterValueException
-newInvalidParameterValueException'  customize = (InvalidParameterValueException <<< customize) { "Type": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newInvalidParameterValueException' :: ( { "Type" :: Maybe (String) , "message" :: Maybe (String) } -> {"Type" :: Maybe (String) , "message" :: Maybe (String) } ) -> InvalidParameterValueException
+newInvalidParameterValueException'  customize = (InvalidParameterValueException <<< customize) { "Type": Nothing, "message": Nothing }
 
 
 
 -- | <p>The request body could not be parsed as JSON.</p>
 newtype InvalidRequestContentException = InvalidRequestContentException 
-  { "Type" :: NullOrUndefined (String)
-  , "message" :: NullOrUndefined (String)
+  { "Type" :: Maybe (String)
+  , "message" :: Maybe (String)
   }
 derive instance newtypeInvalidRequestContentException :: Newtype InvalidRequestContentException _
 derive instance repGenericInvalidRequestContentException :: Generic InvalidRequestContentException _
@@ -325,12 +324,12 @@ instance encodeInvalidRequestContentException :: Encode InvalidRequestContentExc
 
 -- | Constructs InvalidRequestContentException from required parameters
 newInvalidRequestContentException :: InvalidRequestContentException
-newInvalidRequestContentException  = InvalidRequestContentException { "Type": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newInvalidRequestContentException  = InvalidRequestContentException { "Type": Nothing, "message": Nothing }
 
 -- | Constructs InvalidRequestContentException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidRequestContentException' :: ( { "Type" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } -> {"Type" :: NullOrUndefined (String) , "message" :: NullOrUndefined (String) } ) -> InvalidRequestContentException
-newInvalidRequestContentException'  customize = (InvalidRequestContentException <<< customize) { "Type": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newInvalidRequestContentException' :: ( { "Type" :: Maybe (String) , "message" :: Maybe (String) } -> {"Type" :: Maybe (String) , "message" :: Maybe (String) } ) -> InvalidRequestContentException
+newInvalidRequestContentException'  customize = (InvalidRequestContentException <<< customize) { "Type": Nothing, "message": Nothing }
 
 
 
@@ -357,7 +356,7 @@ newInvokeAsyncRequest' _FunctionName _InvokeArgs customize = (InvokeAsyncRequest
 
 -- | <p>Upon success, it returns empty response. Otherwise, throws an exception.</p>
 newtype InvokeAsyncResponse = InvokeAsyncResponse 
-  { "Status" :: NullOrUndefined (HttpStatus)
+  { "Status" :: Maybe (HttpStatus)
   }
 derive instance newtypeInvokeAsyncResponse :: Newtype InvokeAsyncResponse _
 derive instance repGenericInvokeAsyncResponse :: Generic InvokeAsyncResponse _
@@ -367,20 +366,20 @@ instance encodeInvokeAsyncResponse :: Encode InvokeAsyncResponse where encode = 
 
 -- | Constructs InvokeAsyncResponse from required parameters
 newInvokeAsyncResponse :: InvokeAsyncResponse
-newInvokeAsyncResponse  = InvokeAsyncResponse { "Status": (NullOrUndefined Nothing) }
+newInvokeAsyncResponse  = InvokeAsyncResponse { "Status": Nothing }
 
 -- | Constructs InvokeAsyncResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvokeAsyncResponse' :: ( { "Status" :: NullOrUndefined (HttpStatus) } -> {"Status" :: NullOrUndefined (HttpStatus) } ) -> InvokeAsyncResponse
-newInvokeAsyncResponse'  customize = (InvokeAsyncResponse <<< customize) { "Status": (NullOrUndefined Nothing) }
+newInvokeAsyncResponse' :: ( { "Status" :: Maybe (HttpStatus) } -> {"Status" :: Maybe (HttpStatus) } ) -> InvokeAsyncResponse
+newInvokeAsyncResponse'  customize = (InvokeAsyncResponse <<< customize) { "Status": Nothing }
 
 
 
 newtype ListEventSourcesRequest = ListEventSourcesRequest 
-  { "EventSourceArn" :: NullOrUndefined (String)
-  , "FunctionName" :: NullOrUndefined (FunctionName)
-  , "Marker" :: NullOrUndefined (String)
-  , "MaxItems" :: NullOrUndefined (MaxListItems)
+  { "EventSourceArn" :: Maybe (String)
+  , "FunctionName" :: Maybe (FunctionName)
+  , "Marker" :: Maybe (String)
+  , "MaxItems" :: Maybe (MaxListItems)
   }
 derive instance newtypeListEventSourcesRequest :: Newtype ListEventSourcesRequest _
 derive instance repGenericListEventSourcesRequest :: Generic ListEventSourcesRequest _
@@ -390,19 +389,19 @@ instance encodeListEventSourcesRequest :: Encode ListEventSourcesRequest where e
 
 -- | Constructs ListEventSourcesRequest from required parameters
 newListEventSourcesRequest :: ListEventSourcesRequest
-newListEventSourcesRequest  = ListEventSourcesRequest { "EventSourceArn": (NullOrUndefined Nothing), "FunctionName": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListEventSourcesRequest  = ListEventSourcesRequest { "EventSourceArn": Nothing, "FunctionName": Nothing, "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListEventSourcesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListEventSourcesRequest' :: ( { "EventSourceArn" :: NullOrUndefined (String) , "FunctionName" :: NullOrUndefined (FunctionName) , "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (MaxListItems) } -> {"EventSourceArn" :: NullOrUndefined (String) , "FunctionName" :: NullOrUndefined (FunctionName) , "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (MaxListItems) } ) -> ListEventSourcesRequest
-newListEventSourcesRequest'  customize = (ListEventSourcesRequest <<< customize) { "EventSourceArn": (NullOrUndefined Nothing), "FunctionName": (NullOrUndefined Nothing), "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListEventSourcesRequest' :: ( { "EventSourceArn" :: Maybe (String) , "FunctionName" :: Maybe (FunctionName) , "Marker" :: Maybe (String) , "MaxItems" :: Maybe (MaxListItems) } -> {"EventSourceArn" :: Maybe (String) , "FunctionName" :: Maybe (FunctionName) , "Marker" :: Maybe (String) , "MaxItems" :: Maybe (MaxListItems) } ) -> ListEventSourcesRequest
+newListEventSourcesRequest'  customize = (ListEventSourcesRequest <<< customize) { "EventSourceArn": Nothing, "FunctionName": Nothing, "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>Contains a list of event sources (see <a>API_EventSourceConfiguration</a>)</p>
 newtype ListEventSourcesResponse = ListEventSourcesResponse 
-  { "NextMarker" :: NullOrUndefined (String)
-  , "EventSources" :: NullOrUndefined (EventSourceList)
+  { "NextMarker" :: Maybe (String)
+  , "EventSources" :: Maybe (EventSourceList)
   }
 derive instance newtypeListEventSourcesResponse :: Newtype ListEventSourcesResponse _
 derive instance repGenericListEventSourcesResponse :: Generic ListEventSourcesResponse _
@@ -412,18 +411,18 @@ instance encodeListEventSourcesResponse :: Encode ListEventSourcesResponse where
 
 -- | Constructs ListEventSourcesResponse from required parameters
 newListEventSourcesResponse :: ListEventSourcesResponse
-newListEventSourcesResponse  = ListEventSourcesResponse { "EventSources": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newListEventSourcesResponse  = ListEventSourcesResponse { "EventSources": Nothing, "NextMarker": Nothing }
 
 -- | Constructs ListEventSourcesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListEventSourcesResponse' :: ( { "NextMarker" :: NullOrUndefined (String) , "EventSources" :: NullOrUndefined (EventSourceList) } -> {"NextMarker" :: NullOrUndefined (String) , "EventSources" :: NullOrUndefined (EventSourceList) } ) -> ListEventSourcesResponse
-newListEventSourcesResponse'  customize = (ListEventSourcesResponse <<< customize) { "EventSources": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newListEventSourcesResponse' :: ( { "NextMarker" :: Maybe (String) , "EventSources" :: Maybe (EventSourceList) } -> {"NextMarker" :: Maybe (String) , "EventSources" :: Maybe (EventSourceList) } ) -> ListEventSourcesResponse
+newListEventSourcesResponse'  customize = (ListEventSourcesResponse <<< customize) { "EventSources": Nothing, "NextMarker": Nothing }
 
 
 
 newtype ListFunctionsRequest = ListFunctionsRequest 
-  { "Marker" :: NullOrUndefined (String)
-  , "MaxItems" :: NullOrUndefined (MaxListItems)
+  { "Marker" :: Maybe (String)
+  , "MaxItems" :: Maybe (MaxListItems)
   }
 derive instance newtypeListFunctionsRequest :: Newtype ListFunctionsRequest _
 derive instance repGenericListFunctionsRequest :: Generic ListFunctionsRequest _
@@ -433,19 +432,19 @@ instance encodeListFunctionsRequest :: Encode ListFunctionsRequest where encode 
 
 -- | Constructs ListFunctionsRequest from required parameters
 newListFunctionsRequest :: ListFunctionsRequest
-newListFunctionsRequest  = ListFunctionsRequest { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListFunctionsRequest  = ListFunctionsRequest { "Marker": Nothing, "MaxItems": Nothing }
 
 -- | Constructs ListFunctionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListFunctionsRequest' :: ( { "Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (MaxListItems) } -> {"Marker" :: NullOrUndefined (String) , "MaxItems" :: NullOrUndefined (MaxListItems) } ) -> ListFunctionsRequest
-newListFunctionsRequest'  customize = (ListFunctionsRequest <<< customize) { "Marker": (NullOrUndefined Nothing), "MaxItems": (NullOrUndefined Nothing) }
+newListFunctionsRequest' :: ( { "Marker" :: Maybe (String) , "MaxItems" :: Maybe (MaxListItems) } -> {"Marker" :: Maybe (String) , "MaxItems" :: Maybe (MaxListItems) } ) -> ListFunctionsRequest
+newListFunctionsRequest'  customize = (ListFunctionsRequest <<< customize) { "Marker": Nothing, "MaxItems": Nothing }
 
 
 
 -- | <p>Contains a list of AWS Lambda function configurations (see <a>API_FunctionConfiguration</a>.</p>
 newtype ListFunctionsResponse = ListFunctionsResponse 
-  { "NextMarker" :: NullOrUndefined (String)
-  , "Functions" :: NullOrUndefined (FunctionList)
+  { "NextMarker" :: Maybe (String)
+  , "Functions" :: Maybe (FunctionList)
   }
 derive instance newtypeListFunctionsResponse :: Newtype ListFunctionsResponse _
 derive instance repGenericListFunctionsResponse :: Generic ListFunctionsResponse _
@@ -455,12 +454,12 @@ instance encodeListFunctionsResponse :: Encode ListFunctionsResponse where encod
 
 -- | Constructs ListFunctionsResponse from required parameters
 newListFunctionsResponse :: ListFunctionsResponse
-newListFunctionsResponse  = ListFunctionsResponse { "Functions": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newListFunctionsResponse  = ListFunctionsResponse { "Functions": Nothing, "NextMarker": Nothing }
 
 -- | Constructs ListFunctionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListFunctionsResponse' :: ( { "NextMarker" :: NullOrUndefined (String) , "Functions" :: NullOrUndefined (FunctionList) } -> {"NextMarker" :: NullOrUndefined (String) , "Functions" :: NullOrUndefined (FunctionList) } ) -> ListFunctionsResponse
-newListFunctionsResponse'  customize = (ListFunctionsResponse <<< customize) { "Functions": (NullOrUndefined Nothing), "NextMarker": (NullOrUndefined Nothing) }
+newListFunctionsResponse' :: ( { "NextMarker" :: Maybe (String) , "Functions" :: Maybe (FunctionList) } -> {"NextMarker" :: Maybe (String) , "Functions" :: Maybe (FunctionList) } ) -> ListFunctionsResponse
+newListFunctionsResponse'  customize = (ListFunctionsResponse <<< customize) { "Functions": Nothing, "NextMarker": Nothing }
 
 
 
@@ -522,8 +521,8 @@ newRemoveEventSourceRequest' _UUID customize = (RemoveEventSourceRequest <<< cus
 
 -- | <p>The function or the event source specified in the request does not exist.</p>
 newtype ResourceNotFoundException = ResourceNotFoundException 
-  { "Type" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "Type" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeResourceNotFoundException :: Newtype ResourceNotFoundException _
 derive instance repGenericResourceNotFoundException :: Generic ResourceNotFoundException _
@@ -533,12 +532,12 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | Constructs ResourceNotFoundException from required parameters
 newResourceNotFoundException :: ResourceNotFoundException
-newResourceNotFoundException  = ResourceNotFoundException { "Message": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newResourceNotFoundException  = ResourceNotFoundException { "Message": Nothing, "Type": Nothing }
 
 -- | Constructs ResourceNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotFoundException' :: ( { "Type" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"Type" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> ResourceNotFoundException
-newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newResourceNotFoundException' :: ( { "Type" :: Maybe (String) , "Message" :: Maybe (String) } -> {"Type" :: Maybe (String) , "Message" :: Maybe (String) } ) -> ResourceNotFoundException
+newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": Nothing, "Type": Nothing }
 
 
 
@@ -562,8 +561,8 @@ instance encodeRuntime :: Encode Runtime where encode = genericEncode options
 
 -- | <p>The AWS Lambda service encountered an internal error.</p>
 newtype ServiceException = ServiceException 
-  { "Type" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "Type" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeServiceException :: Newtype ServiceException _
 derive instance repGenericServiceException :: Generic ServiceException _
@@ -573,12 +572,12 @@ instance encodeServiceException :: Encode ServiceException where encode = generi
 
 -- | Constructs ServiceException from required parameters
 newServiceException :: ServiceException
-newServiceException  = ServiceException { "Message": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newServiceException  = ServiceException { "Message": Nothing, "Type": Nothing }
 
 -- | Constructs ServiceException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceException' :: ( { "Type" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"Type" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> ServiceException
-newServiceException'  customize = (ServiceException <<< customize) { "Message": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newServiceException' :: ( { "Type" :: Maybe (String) , "Message" :: Maybe (String) } -> {"Type" :: Maybe (String) , "Message" :: Maybe (String) } ) -> ServiceException
+newServiceException'  customize = (ServiceException <<< customize) { "Message": Nothing, "Type": Nothing }
 
 
 
@@ -593,11 +592,11 @@ instance encodeTimeout :: Encode Timeout where encode = genericEncode options
 
 newtype UpdateFunctionConfigurationRequest = UpdateFunctionConfigurationRequest 
   { "FunctionName" :: (FunctionName)
-  , "Role" :: NullOrUndefined (RoleArn)
-  , "Handler" :: NullOrUndefined (Handler)
-  , "Description" :: NullOrUndefined (Description)
-  , "Timeout" :: NullOrUndefined (Timeout)
-  , "MemorySize" :: NullOrUndefined (MemorySize)
+  , "Role" :: Maybe (RoleArn)
+  , "Handler" :: Maybe (Handler)
+  , "Description" :: Maybe (Description)
+  , "Timeout" :: Maybe (Timeout)
+  , "MemorySize" :: Maybe (MemorySize)
   }
 derive instance newtypeUpdateFunctionConfigurationRequest :: Newtype UpdateFunctionConfigurationRequest _
 derive instance repGenericUpdateFunctionConfigurationRequest :: Generic UpdateFunctionConfigurationRequest _
@@ -607,12 +606,12 @@ instance encodeUpdateFunctionConfigurationRequest :: Encode UpdateFunctionConfig
 
 -- | Constructs UpdateFunctionConfigurationRequest from required parameters
 newUpdateFunctionConfigurationRequest :: FunctionName -> UpdateFunctionConfigurationRequest
-newUpdateFunctionConfigurationRequest _FunctionName = UpdateFunctionConfigurationRequest { "FunctionName": _FunctionName, "Description": (NullOrUndefined Nothing), "Handler": (NullOrUndefined Nothing), "MemorySize": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Timeout": (NullOrUndefined Nothing) }
+newUpdateFunctionConfigurationRequest _FunctionName = UpdateFunctionConfigurationRequest { "FunctionName": _FunctionName, "Description": Nothing, "Handler": Nothing, "MemorySize": Nothing, "Role": Nothing, "Timeout": Nothing }
 
 -- | Constructs UpdateFunctionConfigurationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateFunctionConfigurationRequest' :: FunctionName -> ( { "FunctionName" :: (FunctionName) , "Role" :: NullOrUndefined (RoleArn) , "Handler" :: NullOrUndefined (Handler) , "Description" :: NullOrUndefined (Description) , "Timeout" :: NullOrUndefined (Timeout) , "MemorySize" :: NullOrUndefined (MemorySize) } -> {"FunctionName" :: (FunctionName) , "Role" :: NullOrUndefined (RoleArn) , "Handler" :: NullOrUndefined (Handler) , "Description" :: NullOrUndefined (Description) , "Timeout" :: NullOrUndefined (Timeout) , "MemorySize" :: NullOrUndefined (MemorySize) } ) -> UpdateFunctionConfigurationRequest
-newUpdateFunctionConfigurationRequest' _FunctionName customize = (UpdateFunctionConfigurationRequest <<< customize) { "FunctionName": _FunctionName, "Description": (NullOrUndefined Nothing), "Handler": (NullOrUndefined Nothing), "MemorySize": (NullOrUndefined Nothing), "Role": (NullOrUndefined Nothing), "Timeout": (NullOrUndefined Nothing) }
+newUpdateFunctionConfigurationRequest' :: FunctionName -> ( { "FunctionName" :: (FunctionName) , "Role" :: Maybe (RoleArn) , "Handler" :: Maybe (Handler) , "Description" :: Maybe (Description) , "Timeout" :: Maybe (Timeout) , "MemorySize" :: Maybe (MemorySize) } -> {"FunctionName" :: (FunctionName) , "Role" :: Maybe (RoleArn) , "Handler" :: Maybe (Handler) , "Description" :: Maybe (Description) , "Timeout" :: Maybe (Timeout) , "MemorySize" :: Maybe (MemorySize) } ) -> UpdateFunctionConfigurationRequest
+newUpdateFunctionConfigurationRequest' _FunctionName customize = (UpdateFunctionConfigurationRequest <<< customize) { "FunctionName": _FunctionName, "Description": Nothing, "Handler": Nothing, "MemorySize": Nothing, "Role": Nothing, "Timeout": Nothing }
 
 
 
@@ -623,9 +622,9 @@ newtype UploadFunctionRequest = UploadFunctionRequest
   , "Role" :: (RoleArn)
   , "Handler" :: (Handler)
   , "Mode" :: (Mode)
-  , "Description" :: NullOrUndefined (Description)
-  , "Timeout" :: NullOrUndefined (Timeout)
-  , "MemorySize" :: NullOrUndefined (MemorySize)
+  , "Description" :: Maybe (Description)
+  , "Timeout" :: Maybe (Timeout)
+  , "MemorySize" :: Maybe (MemorySize)
   }
 derive instance newtypeUploadFunctionRequest :: Newtype UploadFunctionRequest _
 derive instance repGenericUploadFunctionRequest :: Generic UploadFunctionRequest _
@@ -635,10 +634,10 @@ instance encodeUploadFunctionRequest :: Encode UploadFunctionRequest where encod
 
 -- | Constructs UploadFunctionRequest from required parameters
 newUploadFunctionRequest :: FunctionName -> String -> Handler -> Mode -> RoleArn -> Runtime -> UploadFunctionRequest
-newUploadFunctionRequest _FunctionName _FunctionZip _Handler _Mode _Role _Runtime = UploadFunctionRequest { "FunctionName": _FunctionName, "FunctionZip": _FunctionZip, "Handler": _Handler, "Mode": _Mode, "Role": _Role, "Runtime": _Runtime, "Description": (NullOrUndefined Nothing), "MemorySize": (NullOrUndefined Nothing), "Timeout": (NullOrUndefined Nothing) }
+newUploadFunctionRequest _FunctionName _FunctionZip _Handler _Mode _Role _Runtime = UploadFunctionRequest { "FunctionName": _FunctionName, "FunctionZip": _FunctionZip, "Handler": _Handler, "Mode": _Mode, "Role": _Role, "Runtime": _Runtime, "Description": Nothing, "MemorySize": Nothing, "Timeout": Nothing }
 
 -- | Constructs UploadFunctionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUploadFunctionRequest' :: FunctionName -> String -> Handler -> Mode -> RoleArn -> Runtime -> ( { "FunctionName" :: (FunctionName) , "FunctionZip" :: (String) , "Runtime" :: (Runtime) , "Role" :: (RoleArn) , "Handler" :: (Handler) , "Mode" :: (Mode) , "Description" :: NullOrUndefined (Description) , "Timeout" :: NullOrUndefined (Timeout) , "MemorySize" :: NullOrUndefined (MemorySize) } -> {"FunctionName" :: (FunctionName) , "FunctionZip" :: (String) , "Runtime" :: (Runtime) , "Role" :: (RoleArn) , "Handler" :: (Handler) , "Mode" :: (Mode) , "Description" :: NullOrUndefined (Description) , "Timeout" :: NullOrUndefined (Timeout) , "MemorySize" :: NullOrUndefined (MemorySize) } ) -> UploadFunctionRequest
-newUploadFunctionRequest' _FunctionName _FunctionZip _Handler _Mode _Role _Runtime customize = (UploadFunctionRequest <<< customize) { "FunctionName": _FunctionName, "FunctionZip": _FunctionZip, "Handler": _Handler, "Mode": _Mode, "Role": _Role, "Runtime": _Runtime, "Description": (NullOrUndefined Nothing), "MemorySize": (NullOrUndefined Nothing), "Timeout": (NullOrUndefined Nothing) }
+newUploadFunctionRequest' :: FunctionName -> String -> Handler -> Mode -> RoleArn -> Runtime -> ( { "FunctionName" :: (FunctionName) , "FunctionZip" :: (String) , "Runtime" :: (Runtime) , "Role" :: (RoleArn) , "Handler" :: (Handler) , "Mode" :: (Mode) , "Description" :: Maybe (Description) , "Timeout" :: Maybe (Timeout) , "MemorySize" :: Maybe (MemorySize) } -> {"FunctionName" :: (FunctionName) , "FunctionZip" :: (String) , "Runtime" :: (Runtime) , "Role" :: (RoleArn) , "Handler" :: (Handler) , "Mode" :: (Mode) , "Description" :: Maybe (Description) , "Timeout" :: Maybe (Timeout) , "MemorySize" :: Maybe (MemorySize) } ) -> UploadFunctionRequest
+newUploadFunctionRequest' _FunctionName _FunctionZip _Handler _Mode _Role _Runtime customize = (UploadFunctionRequest <<< customize) { "FunctionName": _FunctionName, "FunctionZip": _FunctionZip, "Handler": _Handler, "Mode": _Mode, "Role": _Role, "Runtime": _Runtime, "Description": Nothing, "MemorySize": Nothing, "Timeout": Nothing }
 
